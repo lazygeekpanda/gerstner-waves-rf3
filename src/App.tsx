@@ -14,7 +14,14 @@ const App: React.FC = () => {
     <>
       {/* Leva configuration */}
       <span id="leva-wrapper">
-        <Leva />
+        <Leva
+          titleBar={{
+            title: 'Controls',
+            drag: false,
+            filter: false
+          }}
+          hideCopyButton
+        />
       </span>
 
       <PageWrapper>

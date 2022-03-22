@@ -30,4 +30,8 @@ html {
     top: calc(${sizes.header} + 10px) !important;
     left: 10px !important;
   }
+
+  #leva-wrapper > div {
+    transform: translate3d(-5px, 70px, 0px);
+  }
 `
