@@ -18,7 +18,7 @@ const App: React.FC = () => {
           titleBar={{
             title: 'Controls',
             drag: false,
-            filter: false
+            filter: false,
           }}
           hideCopyButton
         />
@@ -28,9 +28,10 @@ const App: React.FC = () => {
         <Header />
         <React.Suspense fallback={<Loader />}>
           <Routes>
-            {routes.map(route => (
+            {routes.map((route) => (
               <Route
                 key={route.name}
+                index={route.path === '/'}
                 path={route.path}
                 element={<route.component />}
               />

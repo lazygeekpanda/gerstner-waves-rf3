@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import { HashRouter } from 'react-router-dom'
 import GlobalStyles from 'styles/globalStyles'
 import App from './App'
 
@@ -8,10 +8,10 @@ import reportWebVitals from './reportWebVitals'
 
 render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <GlobalStyles />
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 )
