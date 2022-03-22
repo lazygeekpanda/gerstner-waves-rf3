@@ -2,7 +2,7 @@
   "name": "gerstner-waves-rf3",
   "version": "0.1.1",
   "author": "Žymantas Venclauskas",
-  "private": true,
+  "private": false,
   "homepage": "http://lazygeekpanda.github.io/gerstner-waves-rf3",
   "dependencies": {
     "@react-three/drei": "^8.18.6",
