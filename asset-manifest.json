@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.js": "/gerstner-waves-rf3/static/js/main.1ae3b423.js",
+    "main.js": "/gerstner-waves-rf3/static/js/main.0e2e6268.js",
     "static/js/840.1d10ee80.chunk.js": "/gerstner-waves-rf3/static/js/840.1d10ee80.chunk.js",
     "static/js/787.e1ac99d7.chunk.js": "/gerstner-waves-rf3/static/js/787.e1ac99d7.chunk.js",
     "static/js/585.5f36d0ee.chunk.js": "/gerstner-waves-rf3/static/js/585.5f36d0ee.chunk.js",
     "static/media/waternormals.jpg": "/gerstner-waves-rf3/static/media/waternormals.537ec85b965d414829ab.jpg",
     "index.html": "/gerstner-waves-rf3/index.html",
-    "main.1ae3b423.js.map": "/gerstner-waves-rf3/static/js/main.1ae3b423.js.map",
+    "main.0e2e6268.js.map": "/gerstner-waves-rf3/static/js/main.0e2e6268.js.map",
     "840.1d10ee80.chunk.js.map": "/gerstner-waves-rf3/static/js/840.1d10ee80.chunk.js.map",
     "787.e1ac99d7.chunk.js.map": "/gerstner-waves-rf3/static/js/787.e1ac99d7.chunk.js.map",
     "585.5f36d0ee.chunk.js.map": "/gerstner-waves-rf3/static/js/585.5f36d0ee.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.1ae3b423.js"
+    "static/js/main.0e2e6268.js"
   ]
 }
