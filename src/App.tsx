@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Leva } from 'leva'
 
-function App() {
+import { Routes, Route } from 'react-router-dom'
+import routes from 'routes'
+
+// Layout Components
+import PageWrapper from 'components/layout/PageWrapper'
+import Header from 'components/layout/Header'
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      {/* Leva configuration */}
+      <span id="leva-wrapper">
+        <Leva />
+      </span>
+
+      <PageWrapper>
+        <Header />
+        <React.Suspense fallback="Loading">
+          <Routes>
+            {routes.map(route => (
+              <Route
+                key={route.name}
+                path={route.path}
+                element={<route.component />}
+              />
+            ))}
+          </Routes>
+        </React.Suspense>
+      </PageWrapper>
+    </>
+  )
 }
 
-export default App;
+export default App
