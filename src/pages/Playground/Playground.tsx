@@ -1,7 +1,14 @@
 import React, {} from 'react'
 
+import PageContent from 'components/layout/PageContent'
+import Canvas from 'components/three/Canvas'
+
 const PlaygroundPage: React.FC = () => {
-  return <div>Playground page</div>
+  return <PageContent>
+    <Canvas>
+
+    </Canvas>
+  </PageContent>
 }
 
 export default PlaygroundPage
