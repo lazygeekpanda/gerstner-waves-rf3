@@ -14,12 +14,12 @@ const routes: Route[] = [
     path: '/',
     component: lazy(() => import('pages/Playground')),
   },
-  {
-    name: 'weather-forecast-simulation',
-    title: 'Weather Forecast',
-    path: '/weather-forecast',
-    component: lazy(() => import('pages/WeatherForecast')),
-  }
+  // {
+  //   name: 'weather-forecast-simulation',
+  //   title: 'Weather Forecast',
+  //   path: '/weather-forecast',
+  //   component: lazy(() => import('pages/WeatherForecast')),
+  // }
 ]
 
 export default routes
