@@ -17,7 +17,7 @@ const Controls: React.FC = ({ children }) => {
 
         // Zoom limits
         minDistance={15}
-        maxDistance={75}
+        maxDistance={150}
 
         // Disable camera below surface
         maxPolarAngle={Math.PI / 2.5}
