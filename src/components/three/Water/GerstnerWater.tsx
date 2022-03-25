@@ -8,9 +8,8 @@ import {
   useFrame,
   Object3DNode,
 } from '@react-three/fiber'
+import { usePlane } from '@react-three/cannon'
 import { Water } from 'three/examples/jsm/objects/Water.js'
-
-import _ from 'lodash'
 
 import vertexShader from './utils/vertex.shader'
 import fragmentShader from './utils/fragment.shader'
@@ -42,7 +41,8 @@ const GerstnerWater: React.FC<Props> = ({
   waveB,
   waveC,
 }) => {
-  const ref = useRef<Water>()
+  const [ref] = usePlane(() => ({ mass: 0, rotation: [-Math.PI / 2, 0, 0], position: [0, 0, 0]  }))
+  // useRef<Water>()
   const gl = useThree<THREE.WebGLRenderer>((state) => state.gl)
 
   const waterNormals = useLoader(
@@ -119,6 +119,7 @@ const GerstnerWater: React.FC<Props> = ({
       return
     }
 
+    // @ts-ignore
     const material = ref.current.material as THREE.ShaderMaterial
     material.wireframe = wireframe
   }, [size, wireframe, waveA, waveB, waveC])
@@ -129,6 +130,7 @@ const GerstnerWater: React.FC<Props> = ({
       return
     }
 
+    // @ts-ignore
     const material = ref.current.material as THREE.ShaderMaterial
     material.uniforms.time.value += delta
     material.onBeforeCompile = onBeforeCompile
@@ -139,7 +141,7 @@ const GerstnerWater: React.FC<Props> = ({
       ref={ref}
       args={[geometry, { ...config }]}
       rotation-x={-Math.PI / 2}
-      position={[0, 0, 0]}
+      position={[0, 2, 0]}
     />
   )
 }

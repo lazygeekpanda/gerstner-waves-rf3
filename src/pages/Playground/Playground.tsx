@@ -1,10 +1,12 @@
 import React from 'react'
-
+import * as THREE from 'three'
 import { useControls } from 'leva'
+import { Physics } from '@react-three/cannon'
 
 import PageContent from 'components/layout/PageContent'
 import Canvas from 'components/three/Canvas'
 import Sky from 'components/three/Sky'
+import Vessel from 'components/three/Vessel'
 import GerstnerWater from 'components/three/Water/GerstnerWater'
 
 import { Wave } from 'models/wave.model'
@@ -37,14 +39,22 @@ const PlaygroundPage: React.FC = () => {
   return (
     <PageContent>
       <Canvas>
+        <ambientLight intensity={0.15} position={[100, 100, 100]} />
+        <pointLight position={[100, 100, 100]} intensity={0.5} />
+        <primitive object={new THREE.AxesHelper(1000)} />
         <Sky />
-        <GerstnerWater
-          waveA={waveA}
-          waveB={waveB}
-          waveC={waveC}
-          wireframe={wireframe}
-          size={size}
-        />
+        <Physics>
+          {/* <Vessel waveA={waveA}
+            waveB={waveB}
+            waveC={waveC} /> */}
+          <GerstnerWater
+            waveA={waveA}
+            waveB={waveB}
+            waveC={waveC}
+            wireframe={wireframe}
+            size={size}
+          />
+        </Physics>
       </Canvas>
     </PageContent>
   )
