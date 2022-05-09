@@ -14,8 +14,8 @@ Gerstner/Trochoidal waves implementation using React and ThreeJS.
 ![](https://raw.githubusercontent.com/lazygeekpanda/gerstner-waves-rf3/master/img/demo2.png)
 
 ## TODO
-* Add vessel model and simulate its position and rotation
-* Simulate waves using real weather forecast data
+* Better ship rotation and placement
+* Connect meteo API to get data and calculate waves
 
 ---
 
