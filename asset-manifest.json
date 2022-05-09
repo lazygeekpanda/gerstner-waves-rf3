@@ -1,17 +1,20 @@
 {
   "files": {
-    "main.js": "/gerstner-waves-rf3/static/js/main.0e2e6268.js",
-    "static/js/840.1d10ee80.chunk.js": "/gerstner-waves-rf3/static/js/840.1d10ee80.chunk.js",
+    "main.js": "/gerstner-waves-rf3/static/js/main.7cbae1ce.js",
+    "static/js/210.4476bf06.chunk.js": "/gerstner-waves-rf3/static/js/210.4476bf06.chunk.js",
+    "static/js/776.1d44e1d6.chunk.js": "/gerstner-waves-rf3/static/js/776.1d44e1d6.chunk.js",
     "static/js/787.e1ac99d7.chunk.js": "/gerstner-waves-rf3/static/js/787.e1ac99d7.chunk.js",
-    "static/js/585.5f36d0ee.chunk.js": "/gerstner-waves-rf3/static/js/585.5f36d0ee.chunk.js",
+    "static/js/894.98b089ff.chunk.js": "/gerstner-waves-rf3/static/js/894.98b089ff.chunk.js",
+    "static/media/ship.fbx": "/gerstner-waves-rf3/static/media/ship.679585528f34ff916505.fbx",
     "static/media/waternormals.jpg": "/gerstner-waves-rf3/static/media/waternormals.537ec85b965d414829ab.jpg",
     "index.html": "/gerstner-waves-rf3/index.html",
-    "main.0e2e6268.js.map": "/gerstner-waves-rf3/static/js/main.0e2e6268.js.map",
-    "840.1d10ee80.chunk.js.map": "/gerstner-waves-rf3/static/js/840.1d10ee80.chunk.js.map",
+    "main.7cbae1ce.js.map": "/gerstner-waves-rf3/static/js/main.7cbae1ce.js.map",
+    "210.4476bf06.chunk.js.map": "/gerstner-waves-rf3/static/js/210.4476bf06.chunk.js.map",
+    "776.1d44e1d6.chunk.js.map": "/gerstner-waves-rf3/static/js/776.1d44e1d6.chunk.js.map",
     "787.e1ac99d7.chunk.js.map": "/gerstner-waves-rf3/static/js/787.e1ac99d7.chunk.js.map",
-    "585.5f36d0ee.chunk.js.map": "/gerstner-waves-rf3/static/js/585.5f36d0ee.chunk.js.map"
+    "894.98b089ff.chunk.js.map": "/gerstner-waves-rf3/static/js/894.98b089ff.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.0e2e6268.js"
+    "static/js/main.7cbae1ce.js"
   ]
 }
