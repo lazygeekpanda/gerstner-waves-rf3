@@ -43,3 +43,7 @@ This project is created with:
 ## Reference
  - [Gerstner/Trochoidal Wave wiki](https://en.wikipedia.org/wiki/Trochoidal_wave)
  - [Gerstner wave ThreeJS](https://sbcode.net/threejs/gerstnerwater/)
+
+
+## Credots
+ - [Ship Model](https://sketchfab.com/3d-models/cargo-ship-c95d341642c949bd85a03c97a15f81c3)
