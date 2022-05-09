@@ -8,7 +8,6 @@ import {
   useFrame,
   Object3DNode,
 } from '@react-three/fiber'
-import { usePlane } from '@react-three/cannon'
 import { Water } from 'three/examples/jsm/objects/Water.js'
 
 import vertexShader from './utils/vertex.shader'
@@ -41,8 +40,7 @@ const GerstnerWater: React.FC<Props> = ({
   waveB,
   waveC,
 }) => {
-  const [ref] = usePlane(() => ({ mass: 0, rotation: [-Math.PI / 2, 0, 0], position: [0, 0, 0]  }))
-  // useRef<Water>()
+  const ref = useRef<Water>()
   const gl = useThree<THREE.WebGLRenderer>((state) => state.gl)
 
   const waterNormals = useLoader(
@@ -125,14 +123,14 @@ const GerstnerWater: React.FC<Props> = ({
   }, [size, wireframe, waveA, waveB, waveC])
 
   // Animate water
-  useFrame((_, delta) => {
+  useFrame(({ clock }) => {
     if (!ref.current) {
       return
     }
 
     // @ts-ignore
     const material = ref.current.material as THREE.ShaderMaterial
-    material.uniforms.time.value += delta
+    material.uniforms.time.value = clock.getElapsedTime()
     material.onBeforeCompile = onBeforeCompile
   })
 

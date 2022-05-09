@@ -1,7 +1,6 @@
 import React from 'react'
 import * as THREE from 'three'
 import { useControls } from 'leva'
-import { Physics } from '@react-three/cannon'
 
 import PageContent from 'components/layout/PageContent'
 import Canvas from 'components/three/Canvas'
@@ -9,7 +8,7 @@ import Sky from 'components/three/Sky'
 import Vessel from 'components/three/Vessel'
 import GerstnerWater from 'components/three/Water/GerstnerWater'
 
-import { Wave } from 'models/wave.model'
+import { useWaterContext, WaterRefProvider } from 'contexts/water.context'
 
 const PlaygroundPage: React.FC = () => {
   // Water Controls
@@ -18,46 +17,34 @@ const PlaygroundPage: React.FC = () => {
     wireframe: { label: 'Wireframe', value: false },
   })
 
-  const waveA: Wave = useControls('Wave A', {
-    direction: { label: 'Direction', value: 0, step: 1, min: 0, max: 359 },
-    steepness: { label: 'Steepness', value: 0.15, step: 0.01, min: 0, max: 1 },
-    wavelength: { label: 'Wave Length', value: 100, step: 1, min: 1, max: 100 },
-  })
-
-  const waveB: Wave = useControls('Wave B', {
-    direction: { label: 'Direction', value: 30, step: 1, min: 0, max: 359 },
-    steepness: { label: 'Steepness', value: 0.15, step: 0.01, min: 0, max: 1 },
-    wavelength: { label: 'Wave Length', value: 50, step: 1, min: 1, max: 100 },
-  })
-
-  const waveC: Wave = useControls('Wave C', {
-    direction: { label: 'Direction', value: 60, step: 1, min: 0, max: 359 },
-    steepness: { label: 'Steepness', value: 0.15, step: 0.01, min: 0, max: 1 },
-    wavelength: { label: 'Wave Length', value: 25, step: 1, min: 1, max: 100 },
-  })
+  const { waveA, waveB, waveC, getWaveInfo } = useWaterContext()
 
   return (
     <PageContent>
       <Canvas>
         <ambientLight intensity={0.15} position={[100, 100, 100]} />
         <pointLight position={[100, 100, 100]} intensity={0.5} />
-        <primitive object={new THREE.AxesHelper(1000)} />
         <Sky />
-        <Physics>
-          {/* <Vessel waveA={waveA}
-            waveB={waveB}
-            waveC={waveC} /> */}
-          <GerstnerWater
-            waveA={waveA}
-            waveB={waveB}
-            waveC={waveC}
-            wireframe={wireframe}
-            size={size}
-          />
-        </Physics>
+
+        <Vessel getWaveInfo={getWaveInfo} />
+        <GerstnerWater
+          waveA={waveA}
+          waveB={waveB}
+          waveC={waveC}
+          wireframe={wireframe}
+          size={size}
+        />
       </Canvas>
     </PageContent>
   )
 }
 
-export default PlaygroundPage
+const PageWithContext: React.FC = () => (
+  <>
+    <WaterRefProvider>
+      <PlaygroundPage />
+    </WaterRefProvider>
+  </>
+)
+
+export default PageWithContext
