@@ -8,6 +8,7 @@ import routes from 'routes'
 import Loader from 'components/common/Loader'
 import PageWrapper from 'components/layout/PageWrapper'
 import Header from 'components/layout/Header'
+import Credits from 'components/layout/Credits/Credits'
 
 const App: React.FC = () => {
   return (
@@ -38,6 +39,7 @@ const App: React.FC = () => {
             ))}
           </Routes>
         </React.Suspense>
+        <Credits />
       </PageWrapper>
     </>
   )

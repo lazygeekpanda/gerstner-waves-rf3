@@ -1,65 +1,50 @@
 import React from 'react'
 
 import * as THREE from 'three'
-import OBJModelLoader from 'components/three/Loader/OBJLoader'
+import FBXModelLoader from 'components/three/Loader/FBXLoader'
 import { useFrame } from '@react-three/fiber'
-import { useBox } from '@react-three/cannon'
 
+interface Props {
+  getWaveInfo: (x: any, y: any, time: any) => THREE.Vector3
+}
 
-const Vessel: React.FC<any> = ({ waveA, waveB, waveC }) => {
-  // const ref= React.useRef()
+const MARKER_Z_OFFSET = 256
 
-  const [ref, api] = useBox(() => ({ mass: 100000, position: [0, 500, 0] }))
-  console.log(api)
-  useFrame((state, delta) => {
-    // api.position.set(0, delta * 100, 0)
+const Vessel: React.FC<Props> = ({ getWaveInfo }) => {
+  const ref = React.useRef<THREE.Mesh>()
+  const frontRef = React.useRef<THREE.Mesh>()
+
+  useFrame(({ clock }) => {
+    const vesselPosition = getWaveInfo(0, 0, clock.getElapsedTime())
+    const markerPosition = getWaveInfo(0, 256, clock.getElapsedTime())
+
+    if (ref?.current && frontRef?.current) {
+      frontRef.current.position.set(
+        -markerPosition.x * 1.15,
+        markerPosition.y,
+        MARKER_Z_OFFSET
+      )
+
+      ref.current.position.set(
+        vesselPosition.x,
+        vesselPosition.y + 7,
+        vesselPosition.z
+      )
+
+      // @ts-ignore
+      ref.current.lookAt(frontRef.current.position)
+    }
   })
 
-  const getWaveInfo = (
-    offsetX: any,
-    offsetZ: any,
-    x: any,
-    z: any,
-    time: any
-  ) => {
-    const pos = new THREE.Vector3()
-    const tangent = new THREE.Vector3(1, 0, 0)
-    const binormal = new THREE.Vector3(0, 0, 1)
-
-    ;[waveA, waveB, waveC].forEach((w: any) => {
-      const k = (Math.PI * 2.0) / w.wavelength
-      const c = Math.sqrt(9.8 / k)
-      const d = new THREE.Vector2(
-        Math.sin((w.direction * Math.PI) / 180),
-        -Math.cos((w.direction * Math.PI) / 180)
-      )
-      const f = k * (d.dot(new THREE.Vector2(x, z)) - c * time)
-      const a = w.steepness / k
-
-      pos.x += d.x * (a * Math.cos(f))
-      pos.y += a * Math.sin(f)
-      pos.z += d.y * (a * Math.cos(f))
-
-      tangent.x += -d.x * d.x * (w.steepness * Math.sin(f))
-      tangent.y += d.x * (w.steepness * Math.cos(f))
-      tangent.z += -d.x * d.y * (w.steepness * Math.sin(f))
-
-      binormal.x += -d.x * d.y * (w.steepness * Math.sin(f))
-      binormal.y += d.y * (w.steepness * Math.cos(f))
-      binormal.z += -d.y * d.y * (w.steepness * Math.sin(f))
-    })
-
-    const normal = binormal.cross(tangent).normalize()
-    return { position: pos, normal: normal }
-  }
-
   return (
-    <OBJModelLoader
-      ref={ref}
-      model="vessel.obj"
-      scale={[0.01, 0.01, 0.01]}
-      position={[0, 0, 0]}
-    />
+    <>
+      <mesh ref={frontRef}>
+        <planeBufferGeometry args={[256, 256]} />
+        <meshStandardMaterial opacity={0} transparent />
+      </mesh>
+
+      <FBXModelLoader ref={ref} model="ship.fbx" scale={[0.5, 0.5, 0.5]} />
+    </>
   )
 }
 
