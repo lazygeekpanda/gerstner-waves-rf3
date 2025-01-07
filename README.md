@@ -2,10 +2,13 @@
 Gerstner/Trochoidal waves implementation using React and ThreeJS.
 
 ## Table of contents
+- [Gerstner waves](#gerstner-waves)
+  - [Table of contents](#table-of-contents)
   - [TODO](#todo)
   - [Setup](#setup)
   - [Technologies](#technologies)
   - [Reference](#reference)
+  - [Credits](#credits)
 
 ---
 [Demo](https://lazygeekpanda.github.io/gerstner-waves-rf3/)
@@ -45,5 +48,5 @@ This project is created with:
  - [Gerstner wave ThreeJS](https://sbcode.net/threejs/gerstnerwater/)
 
 
-## Credots
+## Credits
  - [Ship Model](https://sketchfab.com/3d-models/cargo-ship-c95d341642c949bd85a03c97a15f81c3)
