@@ -1,3 +1,9 @@
+/**
+ * @license
+ * Copyright 2010-2022 Three.js Authors
+ * SPDX-License-Identifier: MIT
+ */
+
 /** @license React v0.26.2
  * react-reconciler.production.min.js
  *
