@@ -1,5 +1,4 @@
 import React from 'react'
-import * as THREE from 'three'
 import { useControls } from 'leva'
 
 import PageContent from 'components/layout/PageContent'
