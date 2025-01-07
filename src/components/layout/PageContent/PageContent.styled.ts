@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
-import sizes from 'styles/sizes'
 import colors from 'styles/colors'
 
 export const Wrapper = styled.div`
-  height: calc(100vh - ${sizes.header});
+  height: 100vh;
   background-color: ${colors.bg};
 
   overflow: hidden;

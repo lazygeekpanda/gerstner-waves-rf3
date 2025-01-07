@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 
-import sizes from 'styles/sizes'
-
 export const Wrapper = styled.div`
   position: absolute;
 
-  top: ${sizes.header};
+  top: 0;
   bottom: 0;
   right: 0;
   left: 0;

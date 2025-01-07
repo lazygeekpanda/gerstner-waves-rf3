@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-import sizes from './sizes'
-
 export default createGlobalStyle`
 html {
   -webkit-font-smoothing: antialiased;
@@ -27,7 +25,7 @@ html {
   }
 
   body > .stats-wrapper {
-    top: calc(${sizes.header} + 10px) !important;
+    top: 10px !important;
     left: 10px !important;
   }
 

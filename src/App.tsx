@@ -7,7 +7,6 @@ import routes from 'routes'
 // Layout Components
 import Loader from 'components/common/Loader'
 import PageWrapper from 'components/layout/PageWrapper'
-import Header from 'components/layout/Header'
 import Credits from 'components/layout/Credits/Credits'
 
 const App: React.FC = () => {
@@ -26,7 +25,6 @@ const App: React.FC = () => {
       </span>
 
       <PageWrapper>
-        <Header />
         <React.Suspense fallback={<Loader />}>
           <Routes>
             {routes.map((route) => (
